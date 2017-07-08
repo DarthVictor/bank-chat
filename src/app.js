@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom';
-import RootContainer from './root-container';
+import RootContainer from './RootContainer';
 
 if (module.hot) {
-   module.hot.accept('./root-container', () => {
-     const NextRootContainer = require('./root-container').default
+   module.hot.accept('./RootContainer', () => {
+     const NextRootContainer = require('./RootContainer').default
      render(<NextRootContainer />, document.getElementById('react-root'))
    })
 }
