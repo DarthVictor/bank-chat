@@ -1,0 +1,90 @@
+{
+  "parser": "babel-eslint",
+  "globals": {
+    "__SERVER__": true,
+    "__CLIENT__": true,
+    "__PROD__": true,
+    "__STAGE__": true,
+    "__DEV__": true,
+    "document": true,
+    "window": true,
+    "module": true,
+    "require": true,
+    "__dirname": true,
+    "React": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "extends": "eslint:recommended",
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "env": {
+      "browser": true
+  },
+  "rules": {
+    /*
+        eslint:recommended rules
+    */
+    "no-console": 0,
+    "no-debugger": "warn",
+    "no-mixed-spaces-and-tabs": "warn",
+    "no-unused-vars": [
+        "warn",
+        {
+            "args": "none"
+        }
+    ],
+    /*
+        Possible Errors
+    */
+    "no-prototype-builtins": "warn",
+    "no-template-curly-in-string": "error",
+    "no-unsafe-negation": "warn",
+    /*
+        eslint-plugin-import
+    */
+    "import/no-unresolved": [
+        "error",
+        {
+            "commonjs": true,
+            "amd": true
+        }
+    ],
+    "import/named": "error",
+    "import/default": "error",
+    /*
+        Other
+    */
+    "quotes": [
+        "error",
+        "single"
+    ],
+    "new-cap": "error",
+    "strict": "error",
+    "quote-props": [
+        "error",
+        "as-needed"
+    ],
+    "arrow-body-style": "off",
+    "func-names": "warn",
+    "no-param-reassign": "warn",
+    "react/react-in-jsx-scope": "warn",
+    "no-underscore-dangle": "warn",
+    "global-require": "off",
+    "react/prop-types": "warn",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-first-prop-new-line": "warn",
+    "guard-for-in": "off",
+    "no-restricted-syntax": ["error", "WithStatement"],
+    "react/forbid-prop-types": "off"
+  }
+}
