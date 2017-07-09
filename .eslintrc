@@ -79,7 +79,7 @@
     "react/react-in-jsx-scope": "warn",
     "no-underscore-dangle": "warn",
     "global-require": "off",
-    "react/prop-types": "warn",
+    "react/prop-types": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/jsx-first-prop-new-line": "warn",
