@@ -2,9 +2,6 @@ import React from 'react'
 import ChatMessage from '../ChatMessage'
 import './ChatList.scss'
 
-import EUGENIY_URL from '../../../public/Eugeniy.png'
-import MARIA_URL from '../../../public/Maria.png'
-
 export default class ChatList extends React.Component {
   static formatDateHeader(date){
     function twoDigits(n){
@@ -46,6 +43,9 @@ export default class ChatList extends React.Component {
   }
 }
 
+
+import EUGENIY_URL from '../../../public/Eugeniy.png'
+import MARIA_URL from '../../../public/Maria.png'
 const CURRENT_USER_ID = 1
 const MSG_LIST = [
   {
