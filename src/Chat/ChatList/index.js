@@ -1,3 +1,17 @@
 import ChatList from './ChatList'
 
-export default ChatList
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+  return {
+    chat: state.messages
+  }
+}
+ 
+
+const ChatListContainer = connect(
+  mapStateToProps,
+)(ChatList)
+
+export default ChatListContainer
+

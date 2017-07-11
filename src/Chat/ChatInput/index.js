@@ -1,3 +1,24 @@
 import ChatInput from './ChatInput'
+import { connect } from 'react-redux'
+import {addMessage} from '../../actions'
 
-export default ChatInput
+const mapStateToProps = state => ({})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSubmit: text => {
+      dispatch(addMessage({
+          type: 'TextMessage',
+          isCurrentUserMsg: true,
+          text,
+      }))
+    }
+  }
+}
+
+const ChatInputContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChatInput)
+
+export default ChatInputContainer
