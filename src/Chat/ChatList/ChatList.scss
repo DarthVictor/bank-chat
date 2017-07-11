@@ -5,8 +5,6 @@
     margin-right: 30px;
     margin-bottom: 30px;
 
-    overflow-y: auto;
-
     &__frame {
         box-sizing: border-box;
         
@@ -23,25 +21,4 @@
         text-align: center;
         color: #b7b7b7;
     }
-}
-
-.chat-list::-webkit-scrollbar {
-	width: 10px;
-	background-color: #F5F5F5;
-}
-
-.chat-list::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-	border-radius: 10px;
-}
-
-.chat-list::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-    background-color:  #52aff1;
-}
-
-.chat-list{
-    scrollbar-face-color: #F5F5F5;
-    scrollbar-track-color: #52aff1;
 }

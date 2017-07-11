@@ -34,7 +34,7 @@ export default class ChatList extends React.Component {
     }, [])
   }
   render() {
-    return <div className="chat-list">
+    return <div className="chat-list custom-scroll">
       <div className="chat-list__frame">
         {this.getList().map(msg => 
           msg.isDateHeader 

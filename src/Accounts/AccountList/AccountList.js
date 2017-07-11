@@ -10,10 +10,12 @@ export default class AccountList extends React.Component {
     }).sort((a, b) => b.key - a.key)
   }
   render() {
-    return <div className="account-list">
+    return <div className="account-list custom-scroll">
+      <div className="account-list__frame">
         {this.getList().map((acc, idx) => 
-          <AccountMessage key={acc.key} account={acc} expand={idx===0}></AccountMessage>
+          <AccountMessage key={acc.key} account={acc} expand={false}></AccountMessage> //idx===0
         )}
+      </div>
     </div>
   }
 }
