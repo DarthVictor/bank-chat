@@ -4,6 +4,10 @@ import './AccountMessage.scss'
 const HEADER_PREFIX = 'Счет № '
 const CREATED_TEXT = 'Создан: '
 const LAST_OPERATION_TEXT = 'Последнее операция: '
+const MAXIMIZE = <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+    <path fill="#888B94" fill-rule="evenodd" d="M7.707 10.293a.999.999 0 0 0-1.414 0L2 14.586V11a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H3.414l4.293-4.293a.999.999 0 0 0 0-1.414zM17 0h-6a1 1 0 1 0 0 2h3.586l-4.293 4.293a.999.999 0 1 0 1.414 1.414L16 3.414V7a1 1 0 1 0 2 0V1a1 1 0 0 0-1-1z"/>
+</svg>
+
 export default class AccountMessage extends React.Component {
   
   render() {
@@ -11,7 +15,14 @@ export default class AccountMessage extends React.Component {
       account
     } = this.props
     return <div className="account-msg">
-      <div className="account-msg__header">{HEADER_PREFIX + account.accountId}</div>
+      <div className="account-msg__header">
+        <div className="account-msg__header-text">
+          {HEADER_PREFIX + account.accountId}
+        </div>
+        <a className="account-msg__header-maximize">
+          {MAXIMIZE}
+        </a>
+      </div>
       <div className="account-msg__amount">{formatAmount(account.amount, account.currency)}</div>
       <div className="account-msg__description">
         <div className="account-msg__description-interest">
@@ -23,7 +34,7 @@ export default class AccountMessage extends React.Component {
         {account.operationsHistory && 
         <div className="account-msg__last-operation">
           {LAST_OPERATION_TEXT + formatDate(account.operationsHistory[0].date)} (
-            <span className={account.amount > 0 ? 'positive' : 'negative'}>{formatAmountChange(account.operationsHistory[0].amount, account.currency)}</span>
+            <span className={account.operationsHistory[0].amount > 0 ? 'positive' : 'negative'}>{formatAmountChange(account.operationsHistory[0].amount, account.currency)}</span>
           )
         </div>}
       </div>
