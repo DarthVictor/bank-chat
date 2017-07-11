@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ffffff;
+  background-color: white;
   border-left: solid 2px #e7e7e7;
   border-right: solid 2px #e7e7e7;
 
@@ -18,21 +18,26 @@
         width: 172px;
         height: 47px;
 
-        background-color: #52aff1;
+        background-color: white;
         font-family: 'Roboto', sans-serif;
         font-size: 20px;
         text-align: center;
-        color: #ffffff;
+        color: #52aff1;
         align-self: flex-end;
         
         padding: 0;
-        border: none;
+        border: 1px solid #52aff1;
     }
     button:first-child{
         border-radius: 4px 0 0 4px;
     }
     button:last-child{
         border-radius: 0 4px 4px 0;
+    }
+    button.is-active{
+        background-color: #52aff1;
+        color: white;
+        border: none;
     }
   }
 }
