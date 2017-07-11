@@ -4,12 +4,15 @@ import AccountMessage from '../AccountMessage'
 import './AccountList.scss'
 export default class AccountList extends React.Component {
   getList(){
-    return ACC_LIST
+    return ACC_LIST.map(acc => {
+      acc.operationsHistory = acc.operationsHistory.sort((a, b) => b.date - a.date)
+      return acc
+    }).sort((a, b) => b.key - a.key)
   }
   render() {
     return <div className="account-list">
-        {this.getList().map(acc => 
-          <AccountMessage key={acc.key} account={acc}></AccountMessage>
+        {this.getList().map((acc, idx) => 
+          <AccountMessage key={acc.key} account={acc} expand={idx===0}></AccountMessage>
         )}
     </div>
   }
