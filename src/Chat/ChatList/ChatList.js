@@ -5,13 +5,14 @@ import './ChatList.scss'
 import EUGENIY_URL from '../../../public/Eugeniy.png'
 import MARIA_URL from '../../../public/Maria.png'
 
-export default class ChatList extends React.Component {
-  static formatDateHeader(date){
-    function twoDigits(n){
-      return (n < 10 ? '0' : '') + n
-    }
-    return `—  ${twoDigits(date.getDate())}.${twoDigits(date.getMonth() + 1)}.${date.getFullYear()}  —`
+function formatDateHeader(date){
+  function twoDigits(n){
+    return (n < 10 ? '0' : '') + n
   }
+  return `—  ${twoDigits(date.getDate())}.${twoDigits(date.getMonth() + 1)}.${date.getFullYear()}  —`
+}
+
+export default class ChatList extends React.Component {  
 
   getList(){
     return MSG_LIST.map(msg => Object.assign({
@@ -24,7 +25,8 @@ export default class ChatList extends React.Component {
       if(prevMsgDate === null || prevMsgDate.getDate() !== curMsgDate.getDate()){
         accMsgs.push({
           isDateHeader: true,
-          text: ChatList.formatDateHeader(curMsgDate)
+          key: 'header_' + msg.date,
+          text: formatDateHeader(curMsgDate)
         })
       }
       accMsgs.push(msg)
@@ -36,7 +38,7 @@ export default class ChatList extends React.Component {
       <div className="chat-list__frame">
         {this.getList().map(msg => 
           msg.isDateHeader 
-          ? <div className="chat-list__date-header">
+          ? <div key={msg.key} className="chat-list__date-header">
               <span className="chat-list__date-header-text">{msg.text}</span>
             </div>
           : <ChatMessage key={msg.key} msg={msg}></ChatMessage>

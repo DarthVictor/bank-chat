@@ -1,0 +1,35 @@
+.account-msg{
+    box-sizing: border-box;
+    padding: 32px 41px;
+    width: 100%;
+
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+
+    &__header{
+        padding-bottom: 13px;
+        font-size: 20px;
+        line-height: 0.83;
+    }
+    &__amount{
+        font-size: 24px;
+        line-height: 1;
+    }
+    &__description{
+        font-size: 14px;
+        line-height: 1.43;
+        color: #999999;
+    }
+
+    &__last-operation{
+        .positive{
+            color: #6ece1a
+        }
+        .negative{
+            color: #de1c28
+        }
+    }
+}
+.account-msg:nth-child(2n){
+    background-color: #f9f9f9;
+}

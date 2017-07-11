@@ -2,7 +2,7 @@ import React from 'react'
 
 import './ChatMessage.scss'
 
-export default class ChatInput extends React.Component {
+export default class ChatMessage extends React.Component {
   render() {
     const {
       msg

@@ -1,8 +1,10 @@
 import React from 'react'
 
+import AccountMessage from '../AccountMessage'
+import './AccountList.scss'
 export default class AccountList extends React.Component {
   getList(){
-    return [];
+    return ACC_LIST
   }
   render() {
     return <div className="account-list">
