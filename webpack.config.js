@@ -44,8 +44,7 @@ module.exports = {
             {
             test: /\.(jpe?g|png|gif|svg)$/i,
                 use: [
-                    'url-loader?limit=1000',
-                    'img-loader'
+                     { loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' }
                 ]
             },
             {
