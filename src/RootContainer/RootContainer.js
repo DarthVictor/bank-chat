@@ -4,11 +4,15 @@ import Accounts from '../Accounts'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import app from '../reducers'
-
 import './RootContainer.scss'
 
-let store = createStore(app)
-
+import { loadState, saveState } from './localStorage' 
+import throttle from 'lodash/throttle'
+const persistedState = loadState()
+const store = createStore(app, persistedState)
+store.subscribe(throttle(() => {
+  saveState(store.saveState())
+}, 1000))
 
 
 export default class RootContainer extends React.Component {
