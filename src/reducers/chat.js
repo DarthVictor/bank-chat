@@ -1,16 +1,26 @@
 const messages = (state = getDefaultState(), action) => {
+    function addMsg(payload){
+        return [            
+            Object.assign({
+                key: Math.max(...state.messages.map(m => m.key)) + 1,
+                author: payload.isCurrentUserMsg ? state.users.current : state.users.other
+            }, payload),
+            ...state.messages
+        ]
+    }
     const {type, payload} = action
     switch (type) {
         case 'ADD_MESSAGE':
             return Object.assign({}, state,{
-                messages: [            
-                    Object.assign({
-                        key: Math.max(...state.messages.map(m => m.key)) + 1,
-                        author: payload.isCurrentUserMsg ? state.users.current : state.users.other
-                    }, payload),
-                    ...state.messages
-                ]
+                messages: addMsg(payload)
             })
+        case 'ADD_HELLO_MESSAGE':
+            return state.wasHelloMessageSent 
+                ? state 
+                : Object.assign({}, state,{
+                    messages: addMsg(payload),
+                    wasHelloMessageSent: true
+                })
         default:
             return state
     }
@@ -30,7 +40,8 @@ function getDefaultState(){
         users : {
             current: CURRENT_USER,
             other: OTHER_USER
-        }
+        },
+        wasHelloMessageSent: false
     } 
    
 }

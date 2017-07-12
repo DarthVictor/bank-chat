@@ -8,6 +8,7 @@ const RANDOM_RESPONSES = [
     'ОК, спасибо',
     'Отлично'
 ]
+const HELLO_MSG_TEXT = 'Привет, у меня пропали все деньги :(.'
 
 export const addTextMessage = message => {
     return {
@@ -21,12 +22,12 @@ export const addTextMessage = message => {
     }
 }
 
-export const addHello = message => {
+export const addHello = () => {
     return {
-        type: 'ADD_MESSAGE',
+        type: 'ADD_HELLO_MESSAGE',
         payload: {
             type: MessageType.TEXT_MESSAGE,
-            text: 'Привет, у меня пропали все деньги :(.',
+            text: HELLO_MSG_TEXT,
             isCurrentUserMsg: false,
             date: Date.now()
         }
@@ -39,7 +40,7 @@ function getRandomInt(_min, _max) {//The maximum is exclusive and the minimum is
   return Math.floor(Math.random() * (max - min)) + min; 
 }
 
-export const addRandomResponse = message => {
+export const addRandomResponse = () => {
     
     return {
         type: 'ADD_MESSAGE',
