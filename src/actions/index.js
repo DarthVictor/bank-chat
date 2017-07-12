@@ -2,6 +2,13 @@ export const MessageType = {
     TEXT_MESSAGE: 'TextMessage',
     OPERATION_MESSAGE: 'OperationMessage'
 }
+
+const RANDOM_RESPONSES = [
+    'Теперь понятно',
+    'ОК, спасибо',
+    'Отлично'
+]
+
 export const addTextMessage = message => {
     return {
         type: 'ADD_MESSAGE',
@@ -25,11 +32,6 @@ export const addHello = message => {
         }
     }
 }
-const RANDOM_RESPONSES = [
-    'Теперь понятно',
-    'ОК, спасибо',
-    'Отлично'
-];
 
 function getRandomInt(_min, _max) {//The maximum is exclusive and the minimum is inclusive
   const min = Math.ceil(min);
