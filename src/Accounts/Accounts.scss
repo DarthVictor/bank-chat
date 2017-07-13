@@ -1,6 +1,8 @@
 .accounts {
     width: 545px;
     height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

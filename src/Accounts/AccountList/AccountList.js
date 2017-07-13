@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AccountMessage from '../AccountMessage'
+import AccountDepoMessage from '../AccountDepoMessage'
 import AccountsMenu from '../AccountsMenu'
 import './AccountList.scss'
 
@@ -19,12 +19,12 @@ export default class AccountList extends React.Component {
         <div className="account-list__frame">
           {
             this.props.accounts && this.props.accounts.map((acc, idx) => 
-              <AccountMessage key={acc.key} account={acc} expand={false}></AccountMessage>
+              <AccountDepoMessage key={acc.key} account={acc} expand={false}></AccountDepoMessage>
             )
           }          
           {
             this.props.account && 
-            <AccountMessage key={this.props.account.key} account={this.props.account} expand={true}></AccountMessage>
+            <AccountDepoMessage key={this.props.account.key} account={this.props.account} expand={true}></AccountDepoMessage>
           }
         </div>
       </div>

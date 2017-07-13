@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import AccountMessage from './AccountMessage'
+import AccountDepoMessage from './AccountDepoMessage'
 import {addOperationMessage} from '../../actions'
 
 const mapStateToProps = state => ({})
@@ -12,9 +12,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const AccountMessageContainer = connect(
+const AccountDepoMessageContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AccountMessage)
+)(AccountDepoMessage)
 
-export default AccountMessageContainer
+export default AccountDepoMessageContainer
