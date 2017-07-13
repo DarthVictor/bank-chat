@@ -3,7 +3,8 @@ import Operation from '../../Operation'
 
 import './ChatMessage.scss'
 import {MessageType} from '../../actions'
-const OPERATION_HEADER = 'Операция'
+import {TextConstants} from '../../resources'
+
 export default class ChatMessage extends React.Component {
   render() {
     const {
@@ -21,7 +22,7 @@ export default class ChatMessage extends React.Component {
         }
         {
         msg.type === MessageType.OPERATION_MESSAGE && <div className="chat-msg__body">
-          <span className="chat-msg__operation-message-header">{OPERATION_HEADER}: </span>
+          <span className="chat-msg__operation-message-header">{TextConstants.OPERATION_HEADER}: </span>
           <Operation operation={msg.body.operation} currency={msg.body.currency} ></Operation>
         </div>
         }

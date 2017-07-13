@@ -2,16 +2,17 @@ import React from 'react'
 
 import AccountDepoMessage from '../AccountDepoMessage'
 import AccountsMenu from '../AccountsMenu'
+import {TextConstants} from '../../resources'
 import './AccountList.scss'
 
 export default class AccountList extends React.Component {
 
   render() {
     if(this.props.accounts){
-      document.title = 'Список счетов'
+      document.title = TextConstants.DOCUMENT_ACCOUNTS_LIST
     }
     else if(this.props.account){
-      document.title = `Счет №${this.props.account.accountId}`
+      document.title = TextConstants.DOCUMENT_ACCOUNT_DETAILS + this.props.account.accountId
     }
     return <div className="accounts">
       <AccountsMenu></AccountsMenu>

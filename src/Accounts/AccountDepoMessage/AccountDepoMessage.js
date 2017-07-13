@@ -2,13 +2,10 @@ import React from 'react'
 import {Link} from 'react-router'
 
 import Operation, {renderAmountColor, formatAmount, formatDate} from '../../Operation'
+import {TextConstants} from '../../resources'
 
 import './AccountDepoMessage.scss'
-const HEADER_PREFIX_ACCOUNT = 'Счет № '
-const HEADER_PREFIX_DEPO = 'Депозит № '
-const CREATED_TEXT = 'Создан: '
-const LAST_OPERATION_TEXT = 'Последнее операция: '
-const OPERATION_LIST_TEXT = 'История операций'
+
 const MAXIMIZE_SVG = <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
     <path fill="#888B94" fillRule="evenodd" d="M7.707 10.293a.999.999 0 0 0-1.414 0L2 14.586V11a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H3.414l4.293-4.293a.999.999 0 0 0 0-1.414zM17 0h-6a1 1 0 1 0 0 2h3.586l-4.293 4.293a.999.999 0 1 0 1.414 1.414L16 3.414V7a1 1 0 1 0 2 0V1a1 1 0 0 0-1-1z"/>
 </svg>
@@ -27,8 +24,8 @@ export default class AccountDepoMessage extends React.Component {
     return <div className="account-msg">
       <div className="account-msg__header">
         <div className="account-msg__header-text">
-          {account ? (HEADER_PREFIX_ACCOUNT + account.accountId) : ''}
-          {deposite ? (HEADER_PREFIX_DEPO + deposite.depoId) : ''}
+          {account ? (TextConstants.HEADER_PREFIX_ACCOUNT + account.accountId) : ''}
+          {deposite ? (TextConstants.HEADER_PREFIX_DEPO + deposite.depoId) : ''}
         </div>
         {account && <Link to={{query: expand ? {} : {accountId:account.accountId} }} className="account-msg__header-maximize">
           {expand ? CLOSE_SVG : MAXIMIZE_SVG}
@@ -40,7 +37,7 @@ export default class AccountDepoMessage extends React.Component {
           {interest}
         </div>
         <div className="account-msg__description-created">
-          {CREATED_TEXT + formatDate(createdDate)}
+          {TextConstants.CREATED_TEXT + formatDate(createdDate)}
         </div>
 
         {this.props.account && this.renderOperations()}
@@ -58,7 +55,7 @@ export default class AccountDepoMessage extends React.Component {
         
         ?(
           <div>
-            <div className="account-msg__operations-list-header">{OPERATION_LIST_TEXT}</div>
+            <div className="account-msg__operations-list-header">{TextConstants.OPERATION_LIST_TEXT}</div>
             <div className="account-msg__operations-list">
               {account.operationsHistory.map(opp =>
                     <Operation 

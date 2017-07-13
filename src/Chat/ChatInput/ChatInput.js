@@ -1,9 +1,7 @@
 import React from 'react'
 
 import './ChatInput.scss'
-const CHATINPUT_BUTTON_TEXT = 'Отправить'
-const CHATINPUT_PLACEHOLDER = 'Отправить'
-const CHATINPUT_HEADER = 'Чат'
+import {TextConstants} from '../../resources'
 const ENTER_CODE = 13
 export default class ChatInput extends React.Component {
   constructor(props){
@@ -34,13 +32,13 @@ export default class ChatInput extends React.Component {
 
   render() {
     return <div className="chat-input">
-        <span className="chat-input__header">{CHATINPUT_HEADER}</span>
+        <span className="chat-input__header">{TextConstants.CHATINPUT_HEADER}</span>
         <textarea 
-          placeholder={CHATINPUT_PLACEHOLDER} 
+          placeholder={TextConstants.CHATINPUT_PLACEHOLDER} 
           className="chat-input__textarea" 
           ref={(input) => { this.textInput = input }}>
         </textarea>
-        <button className="chat-input__button" onClick={this.onSubmitButton}>{CHATINPUT_BUTTON_TEXT}</button>
+        <button className="chat-input__button" onClick={this.onSubmitButton}>{TextConstants.CHATINPUT_BUTTON_TEXT}</button>
     </div>
   }
 }
