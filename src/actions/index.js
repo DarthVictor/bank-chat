@@ -8,40 +8,50 @@ const RANDOM_RESPONSES = [
     'ОК, спасибо',
     'Отлично'
 ]
+
 const HELLO_MSG_TEXT = 'Привет, у меня пропали все деньги :(.'
+const RESPONSE_TIMEOUT = 3000
 
 export const addTextMessage = message => {
-    return {
-        type: 'ADD_MESSAGE',
-        payload: {
-            type: MessageType.TEXT_MESSAGE,
-            text: message.text,
-            isCurrentUserMsg: true,
-            date: Date.now()
-        }
+    return dispatch => {
+        dispatch({
+            type: 'ADD_MESSAGE',
+            payload: {
+                type: MessageType.TEXT_MESSAGE,
+                text: message.text,
+                isCurrentUserMsg: true,
+                date: Date.now()
+            }
+        })
+        setTimeout(() => {
+            dispatch(addRandomResponse())
+        }, RESPONSE_TIMEOUT);
     }
 }
 
 export const addHello = () => {
-    return {
-        type: 'ADD_HELLO_MESSAGE',
-        payload: {
-            type: MessageType.TEXT_MESSAGE,
-            text: HELLO_MSG_TEXT,
-            isCurrentUserMsg: false,
-            date: Date.now()
-        }
+    return dispatch => {
+        setTimeout(() => {
+            dispatch({
+            type: 'ADD_HELLO_MESSAGE',
+            payload: {
+                type: MessageType.TEXT_MESSAGE,
+                text: HELLO_MSG_TEXT,
+                isCurrentUserMsg: false,
+                date: Date.now()
+            }
+        })
+        }, RESPONSE_TIMEOUT);
     }
 }
 
 function getRandomInt(_min, _max) {//The maximum is exclusive and the minimum is inclusive
-  const min = Math.ceil(min);
-  const max = Math.floor(max);
+  const min = Math.ceil(_min);
+  const max = Math.floor(_max);
   return Math.floor(Math.random() * (max - min)) + min; 
 }
 
 export const addRandomResponse = () => {
-    
     return {
         type: 'ADD_MESSAGE',
         payload: {
