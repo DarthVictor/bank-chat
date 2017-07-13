@@ -69,7 +69,7 @@ export default class AccountDepoMessage extends React.Component {
           </div>
         )
         :<div className="account-msg__last-operation">
-          {LAST_OPERATION_TEXT + formatDate(account.operationsHistory[0].date)} (
+          {TextConstants.LAST_OPERATION_TEXT + formatDate(account.operationsHistory[0].date)} (
             {renderAmountColor(account.operationsHistory[0].amount, account.currency)}
           )
         </div>)
