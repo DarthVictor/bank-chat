@@ -1,6 +1,7 @@
 import React from 'react'
 
 import AccountMessage from '../AccountMessage'
+import AccountsMenu from '../AccountsMenu'
 import './AccountList.scss'
 export default class AccountList extends React.Component {
   getList(){
@@ -10,11 +11,14 @@ export default class AccountList extends React.Component {
     }).sort((a, b) => b.key - a.key)
   }
   render() {
-    return <div className="account-list custom-scroll">
-      <div className="account-list__frame">
-        {this.getList().map((acc, idx) => 
-          <AccountMessage key={acc.key} account={acc} expand={false}></AccountMessage> //idx===0
-        )}
+    return <div className="accounts">
+      <AccountsMenu></AccountsMenu>
+      <div className="account-list custom-scroll">
+        <div className="account-list__frame">
+          {this.getList().map((acc, idx) => 
+            <AccountMessage key={acc.key} account={acc} expand={false}></AccountMessage> //idx===0
+          )}
+        </div>
       </div>
     </div>
   }

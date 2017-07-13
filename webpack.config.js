@@ -14,6 +14,7 @@ module.exports = {
         host: 'localhost',
         port: 3000,
         hot: true,
+        historyApiFallback: true,
         open: true,
         openPage: '',
         contentBase:  [path.join(__dirname, 'public'), path.join(__dirname, 'build')],

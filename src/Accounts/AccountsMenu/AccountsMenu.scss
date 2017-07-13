@@ -1,0 +1,35 @@
+.accounts {
+    &__tab-selector{
+        margin: 70px auto 0 auto;
+        display: flex;
+        flex-direction: row;        
+    }
+    &__tab-button {
+        box-sizing: border-box;
+        width: 172px;
+        height: 47px;
+
+        background-color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #52aff1;
+        align-self: flex-end;
+        
+        padding: 10px;
+        border: 1px solid #52aff1;
+    }
+    &__tab-button:first-child{
+        border-radius: 4px 0 0 4px;
+    }
+    &__tab-button:last-child{
+        border-radius: 0 4px 4px 0;
+    }
+    &__tab-button.is-active{
+        background-color: #52aff1;
+        color: white;
+        border: none;
+    }
+}
+
