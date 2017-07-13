@@ -9,6 +9,14 @@ html, body, #react-root {
     direction: row;
 }
 
+
+.positive{
+    color: #6ece1a
+}
+.negative{
+    color: #de1c28
+}
+
 .custom-scroll{
     overflow-y: auto;
     &::-webkit-scrollbar {

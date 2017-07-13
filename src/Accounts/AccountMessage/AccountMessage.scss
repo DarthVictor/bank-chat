@@ -28,38 +28,19 @@
         color: #999999;
     }
 
-    .positive{
-        color: #6ece1a
-    }
-    .negative{
-        color: #de1c28
-    }
-
     &__operations-list-header{
         margin-top: 40px;
         font-size: 16px;
         line-height: 1.5;
         color: #999999;
     }
-
-    &__operation{
-        box-sizing: border-box;
-        padding: 17px 10% 17px 10%;
-        margin: 0 0 0 -10%;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
+    .operation{
         width: 120%;
-
+        margin: 0 0 0 -10%;
+        padding: 17px 10% 17px 10%;
+    }
+    .operation:nth-child(2n){
         background-color: #f9f9f9;
-
-        &-description-text{
-            font-weight: bold;
-            margin-right: 0.5em;
-        }
-        &:nth-child(2n+1){
-            background-color: white
-        }
     }
 
     

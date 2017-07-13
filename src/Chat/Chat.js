@@ -6,8 +6,8 @@ import ChatInput from './ChatInput'
 export default class Chat extends React.Component {
   render() {
     return <div className="chat">
-        <ChatInput onSubmit={this.props.onSubmit}></ChatInput>
-        <ChatList messages={this.props.chat.messages}></ChatList>
+        <ChatInput></ChatInput>
+        <ChatList></ChatList>
     </div>
   }
 }

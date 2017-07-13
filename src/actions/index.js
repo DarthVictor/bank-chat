@@ -29,6 +29,24 @@ export const addTextMessage = message => {
     }
 }
 
+
+export const addOperationMessage = (operation, currency) => {
+    return dispatch => {
+        dispatch({
+            type: 'ADD_MESSAGE',
+            payload: {
+                type: MessageType.OPERATION_MESSAGE,
+                body: {operation, currency},
+                isCurrentUserMsg: true,
+                date: Date.now()
+            }
+        })
+        setTimeout(() => {
+            dispatch(addRandomResponse())
+        }, RESPONSE_TIMEOUT);
+    }
+}
+
 export const addHello = () => {
     return dispatch => {
         setTimeout(() => {

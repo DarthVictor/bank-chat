@@ -1,0 +1,19 @@
+.operation{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    &-date{
+        color: #999999;
+    }
+    &-description-text{
+        font-weight: bold;
+        color: #262626;
+        margin-right: 0.5em;
+    }
+    &-msg{
+        border: none;
+        background: none;
+    }    
+}

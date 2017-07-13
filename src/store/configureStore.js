@@ -6,7 +6,7 @@ import app from '../reducers'
 import onStartup from './onStartup'
 
 const persistedState = loadState()
-console.log(persistedState)
+
 const store = createStore(
     app, 
     persistedState,
