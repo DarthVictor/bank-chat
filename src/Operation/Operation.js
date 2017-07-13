@@ -5,7 +5,6 @@ const MESSAGE_SVG = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="1
 </svg>
 
 export default function Operation ({operation, currency, onSend}){
-  console.log(operation)
   return <div  className="operation">
     <div className="operation-body">
       <div className="operation-date">

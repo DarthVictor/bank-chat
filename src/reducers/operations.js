@@ -10,12 +10,19 @@ function getDefaultState(){
                 acc.operationsHistory = acc.operationsHistory.sort((a, b) => b.date - a.date)
                 return acc
             }).sort((a, b) => b.key - a.key),
-        deposites : []
+        deposites : DEPO_LIST
     } 
    
 }
 
-
+const DEPO_LIST = [{
+  key: 16,
+  depoId: 12487536,
+  amount: 560000,
+  currency: 'RUB',
+  interest: '9.5% годовых',
+  createdDate: Date.parse('2017-02-04T11:05:00'),
+}]
 const ACC_LIST = [
   {
     key: 16,

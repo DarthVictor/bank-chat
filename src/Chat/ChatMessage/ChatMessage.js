@@ -9,7 +9,6 @@ export default class ChatMessage extends React.Component {
     const {
       msg
     } = this.props
-    console.log(msg, MessageType.TEXT_MESSAGE, msg.type === MessageType.TEXT_MESSAGE)
     return <div className={'chat-msg' + (msg.isCurrentUserMsg ? ' chat-msg--current_user' : '')}>
         <div className="chat-msg__avatar" >
           <img src={msg.author.avatarUrl} width="41" height="41"/>

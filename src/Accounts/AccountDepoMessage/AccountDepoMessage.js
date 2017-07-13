@@ -4,7 +4,8 @@ import {Link} from 'react-router'
 import Operation, {renderAmountColor, formatAmount, formatDate} from '../../Operation'
 
 import './AccountDepoMessage.scss'
-const HEADER_PREFIX = 'Счет № '
+const HEADER_PREFIX_ACCOUNT = 'Счет № '
+const HEADER_PREFIX_DEPO = 'Депозит № '
 const CREATED_TEXT = 'Создан: '
 const LAST_OPERATION_TEXT = 'Последнее операция: '
 const OPERATION_LIST_TEXT = 'История операций'
@@ -20,27 +21,29 @@ export default class AccountDepoMessage extends React.Component {
   
   render() {
     const {
-      account, expand
+      account, expand, deposite
     } = this.props
+    const {interest, amount, currency, createdDate} = account || deposite
     return <div className="account-msg">
       <div className="account-msg__header">
         <div className="account-msg__header-text">
-          {HEADER_PREFIX + account.accountId}
+          {account ? (HEADER_PREFIX_ACCOUNT + account.accountId) : ''}
+          {deposite ? (HEADER_PREFIX_DEPO + deposite.depoId) : ''}
         </div>
-        <Link to={{query: expand ? {} : {accountId:account.accountId} }} className="account-msg__header-maximize">
+        {account && <Link to={{query: expand ? {} : {accountId:account.accountId} }} className="account-msg__header-maximize">
           {expand ? CLOSE_SVG : MAXIMIZE_SVG}
-        </Link>
+        </Link>}
       </div>
-      <div className="account-msg__amount">{formatAmount(account.amount, account.currency)}</div>
+      <div className="account-msg__amount">{formatAmount(amount, currency)}</div>
       <div className="account-msg__description">
         <div className="account-msg__description-interest">
-          {account.interest}
+          {interest}
         </div>
         <div className="account-msg__description-created">
-          {CREATED_TEXT + formatDate(account.createdDate)}
+          {CREATED_TEXT + formatDate(createdDate)}
         </div>
 
-        {this.renderOperations()}
+        {this.props.account && this.renderOperations()}
       </div>
     </div>
   }

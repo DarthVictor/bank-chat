@@ -18,7 +18,7 @@ export default class AccountList extends React.Component {
       <div className="account-list custom-scroll">
         <div className="account-list__frame">
           {
-            this.props.accounts && this.props.accounts.map((acc, idx) => 
+            this.props.accounts && this.props.accounts.map(acc => 
               <AccountDepoMessage key={acc.key} account={acc} expand={false}></AccountDepoMessage>
             )
           }          
