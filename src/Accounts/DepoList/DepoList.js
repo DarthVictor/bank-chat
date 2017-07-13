@@ -5,6 +5,7 @@ import './DepoList.scss'
 export default class DepoList extends React.Component {
 
   render() {
+    document.title = 'Список депозитов'
     return <div className="accounts">
       <AccountsMenu></AccountsMenu>
       <div className="depo-list custom-scroll">
