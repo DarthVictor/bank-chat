@@ -1,7 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
+const isProduction = process.argv.indexOf('-p') >= 0
 
-module.exports = {
+const config = {
     entry: [
         path.resolve(__dirname, 'src/main')
     ],
@@ -9,7 +10,12 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
     } ,
-    devtool: 'source-map',
+    externals: isProduction ?{
+            // Use external version of React
+        react: 'react',
+        'react-dom' : 'reactDOM'
+    } : {},
+    devtool: isProduction ? 'source-map' : 'eval',
     devServer: {
         host: 'localhost',
         port: 3000,
@@ -64,7 +70,19 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ]    
+    plugins: !isProduction ? [
+        new webpack.HotModuleReplacementPlugin()        
+    ]
+    :[
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.ProvidePlugin({
+            React: 'React', react: 'React', 'window.react': 'React', 'window.React': 'React'
+        })
+    ]
 }
+
+module.exports = config

@@ -11,7 +11,8 @@
     "module": true,
     "require": true,
     "__dirname": true,
-    "React": true
+    "React": true,
+    "process": true
   },
   "parserOptions": {
     "ecmaVersion": 6,
