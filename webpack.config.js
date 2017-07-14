@@ -12,8 +12,8 @@ const config = {
     } ,
     externals: isProduction ?{
             // Use external version of React
-        react: 'react',
-        'react-dom' : 'reactDOM'
+        react: 'React',
+        'react-dom' : 'ReactDOM'
     } : {},
     devtool: isProduction ? 'source-map' : 'eval',
     devServer: {
